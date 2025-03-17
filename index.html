@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Cuisine Encyclopedia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f7;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .category-filter {
+            background-color: #4a8eff;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            white-space: nowrap;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .category-filter.active {
+            background-color: #2a5edf;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Search bar */
+        .search-bar {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn-primary {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        /* Rotating facts */
+        .facts-container {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* Dish cards */
+        .dishes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .dish-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .dish-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dish-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .dish-content {
+            padding: 15px;
+        }
+        
+        .dish-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .dish-japanese {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .dish-description {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .dish-variation {
+            display: inline-block;
+            background-color: #fff3e0;
+            color: #e65100;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Japanese Cuisine Encyclopedia</h1>
+            <p class="subtitle">Discover the rich flavors and traditions of Japanese cuisine</p>
+        </header>
+        
+        <div class="category-filters" id="category-filters">
+            <!-- Categories will be added here -->
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="search-input" class="search-input" placeholder="Search dishes...">
+        </div>
+        <!-- Remove or comment out this section
+
+        <div class="action-buttons">
+            <button class="btn btn-secondary" id="import-data-btn">
+                <i class="fas fa-file-import"></i> Import Data
+            </button>
+            <button class="btn btn-primary" id="add-dish-btn">
+                <i class="fas fa-plus"></i> Add New Dish
+            </button>
+        </div>
+    -->
+        <div class="facts-container" id="rotating-facts">
+            <!-- Rotating facts will appear here -->
+        </div>
+        
+        <div class="dishes-container" id="dishes-container">
+            <!-- Dish cards will be added here -->
+        </div>
+    </div>
+    <script src="modal.js"></script>
+
+
+
+    <!-- Load the data file first -->
+    <script src="cuisine-data.js"></script>
+    
+    <!-- Then load your application script -->
+    <script src="app.js"></script>
+</body>
+</html>
